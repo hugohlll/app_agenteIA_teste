@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: agente-contratos
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # Hot-reloading: mapeia o código local para dentro do contentor
+      - .:/app
+    restart: unless-stopped
